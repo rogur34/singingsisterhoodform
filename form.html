@@ -58,7 +58,7 @@
     <div class="container">
         <h1>You're almost there, sister!</h1>
         <p>Schedule a complimentary 15-minute consultation with our booking manager to find the ideal female vocal coach tailored to your goals, experience, style, and location. We'll text you first to agree on a time to call you.</p>
-        <form id="signupForm" action="https://docs.google.com/forms/d/e/1FAIpQLSc68NH5gaciyKZlHVtRFcCva7kwkG1uIypfMRd_iVsCIBfi_Q/formResponse" method="post" target="_self" onsubmit="setTimeout(function(){window.location.href = 'https://sites.google.com/view/singing-sisterhood/thank-you';}, 1000);">
+        <form id="signupForm" action="https://docs.google.com/forms/d/e/1FAIpQLSc68NH5gaciyKZlHVtRFcCva7kwkG1uIypfMRd_iVsCIBfi_Q/formResponse" method="post" target="_self" onsubmit="submitForm(event)">
             <label for="goal">What is your biggest goal or dream in music?</label><br>
             <select id="goal" name="entry.521726327" required>
                 <option value="I want to become a renowned singer/musician">I want to become a renowned singer/musician</option>
@@ -118,6 +118,25 @@
                 goalOther.removeAttribute('required');
             }
         });
+
+        function submitForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('signupForm');
+            const action = form.action;
+            const formData = new FormData(form);
+            fetch(action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                setTimeout(() => {
+                    window.location.href = 'https://sites.google.com/view/singing-sisterhood/thank-you';
+                }, 1000);
+            }).catch((error) => {
+                console.error('Error:', error);
+                alert('There was an error submitting the form. Please try again.');
+            });
+        }
     </script>
 </body>
 </html>
