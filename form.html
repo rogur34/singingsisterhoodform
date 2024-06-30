@@ -6,7 +6,7 @@
     <title>Elite Singing Sisterhood Signup Form</title>
     <style>
         body {
-            background-color: #38243c;
+            background-color: #241f38; /* Darker purple background */
             color: #F3E5F5;
             font-family: Arial, sans-serif;
             display: flex;
@@ -19,7 +19,7 @@
         .container {
             max-width: 600px;
             padding: 20px;
-            background: #4A235A;
+            background: #3c2a55; /* Darker form background color */
             border-radius: 8px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             text-align: center;
@@ -31,12 +31,12 @@
             margin: 10px 0;
             border-radius: 4px;
             border: 1px solid #D5BDE6;
-            background: #F3E5F5;
+            background: #E8D1F1; /* Lighter purple input background */
             color: #2C1A29;
             box-sizing: border-box;
         }
         input[type="submit"] {
-            background-color: #D5BDE6;
+            background-color: #C5A6D6; /* Slightly darker button */
             color: #2C1A29;
             border: none;
             cursor: pointer;
@@ -47,7 +47,7 @@
             margin-top: 20px;
         }
         input[type="submit"]:hover {
-            background-color: #BDA8C5;
+            background-color: #A38EB2; /* Darker hover button */
         }
         .hidden {
             display: none;
@@ -58,7 +58,7 @@
     <div class="container">
         <h1>You're almost there, sister!</h1>
         <p>Schedule a complimentary 15-minute consultation with our booking manager to find the ideal female vocal coach tailored to your goals, experience, style, and location. We'll text you first to agree on a time to call you.</p>
-        <form id="signupForm" action="https://script.google.com/macros/s/AKfycbwRC01aJcg93Jskp1g5bOX5sZU--0aQzgs37i1BHm1Pre7SnkFwq2wg9eqRgZw3JaLs/exec" method="post" onsubmit="submitForm(event)">
+        <form id="signupForm" action="https://script.google.com/macros/s/AKfycbyz6F-JBnDKz4ukov5dkEqUmwOtRYwBGcdxjTBf-Rq1cYk8G_f4ymebGmOEUl0CszHp/exec" method="post" onsubmit="submitForm(event)">
             <input type="hidden" name="formSource" value="SingingSisterhood">
             <label for="goal">What is your biggest goal or dream in music?</label><br>
             <select id="goal" name="goal" required>
@@ -129,8 +129,6 @@
             for (var pair of formData.entries()) {
                 console.log(pair[0] + ': ' + pair[1]);
             }
-
-            alert("Form data: " + JSON.stringify(Object.fromEntries(formData.entries())));
 
             fetch(form.action, {
                 method: 'POST',
