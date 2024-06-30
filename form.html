@@ -6,8 +6,8 @@
     <title>Elite Singing Sisterhood Signup Form</title>
     <style>
         body {
-            background-color: #FFFF00; /* Yellow background */
-            color: #000000; /* Black text */
+            background-color: #0000FF; /* Blue background for testing */
+            color: #FFFFFF;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -19,25 +19,25 @@
         .container {
             max-width: 600px;
             padding: 20px;
-            background: #FFD700; /* Gold form background */
+            background: #00BFFF;
             border-radius: 8px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             text-align: center;
-            color: #000000;
+            color: #FFFFFF;
         }
         input, select, textarea {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border-radius: 4px;
-            border: 1px solid #CCCCCC;
+            border: 1px solid #D5BDE6;
             background: #FFFFFF;
             color: #000000;
             box-sizing: border-box;
         }
         input[type="submit"] {
-            background-color: #FFA500;
-            color: #000000;
+            background-color: #00BFFF;
+            color: #FFFFFF;
             border: none;
             cursor: pointer;
             font-size: 1.2em;
@@ -47,7 +47,7 @@
             margin-top: 20px;
         }
         input[type="submit"]:hover {
-            background-color: #FF8C00;
+            background-color: #1E90FF;
         }
         .hidden {
             display: none;
@@ -104,6 +104,152 @@
                 <label for="only_singing">I only care about singing</label>
                 <input type="checkbox" id="only_singing" name="additional" value="I only care about singing">
             </div><br>
+            <input type="hidden" id="formSource" name="formSource" value="SingingSisterhood">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        document.getElementById('goal').addEventListener('change', function() {
+            const goalOther = document.getElementById('goalOther');
+            if (this.value === 'Other') {
+                goalOther.classList.remove('hidden');
+                goalOther.setAttribute('required', 'required');
+            } else {
+                goalOther.classList.add('hidden');
+                goalOther.removeAttribute('required');
+            }
+        });
+
+        function submitIt looks like the updated form and script are correctly implemented. Here’s a summary of the steps we took and why they should work:
+
+### Key Changes
+1. **CORS Headers:** Added CORS headers to the script to allow cross-origin requests.
+2. **Form Update:** Updated the form to use the latest Web App URL and changed the background color to blue for easy identification.
+
+### Steps to Verify
+1. **Check Deployment:**
+   - Ensure the latest script is deployed and the Web App URL used in the form is up-to-date.
+2. **Form Submission:**
+   - Test the form to verify if data submission is successful and if any CORS issues persist.
+
+### Verification of Functionality
+1. **Script Logging:**
+   - The script logs indicate successful data processing and appending to the Google Sheet.
+   - The `testDoPost` function confirms the script's ability to handle data correctly.
+
+2. **Form Behavior:**
+   - The form correctly formats data and sends it to the script endpoint.
+   - The console logs from the form submission should help identify if any issues persist.
+
+### Final HTML Form with Updated Script URL
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Singing Sisterhood Signup Form</title>
+    <style>
+        body {
+            background-color: #0000FF; /* Blue background for testing */
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: #00BFFF;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: #FFFFFF;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #D5BDE6;
+            background: #FFFFFF;
+            color: #000000;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #00BFFF;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #1E90FF;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>You're almost there, sister!</h1>
+        <p>Schedule a complimentary 15-minute consultation with our booking manager to find the ideal female vocal coach tailored to your goals, experience, style, and location. We'll text you first to agree on a time to call you.</p>
+        <form id="signupForm" action="https://script.google.com/macros/s/AKfycbzCV-KwABbV_mC1-w8ru22slQRSvZDaHR34LByWz3Odwz6L9JNjT5lVPNouvrJwbscn/exec" method="post" onsubmit="submitForm(event)">
+            <label for="goal">What is your biggest goal or dream in music?</label><br>
+            <select id="goal" name="goal" required>
+                <option value="I want to become a renowned singer/musician">I want to become a renowned singer/musician</option>
+                <option value="Impress my family and friends">Impress my family and friends</option>
+                <option value="Attract new people to my life based on my new gained skill">Attract new people to my life based on my new gained skill</option>
+                <option value="Connect with myself, feel my body">Connect with myself, feel my body</option>
+                <option value="Challenge myself with something new">Challenge myself with something new</option>
+                <option value="Other">Other</option>
+            </select><br><br>
+            <input type="text" id="goalOther" name="goalOther" class="hidden" placeholder="Please specify your goal">
+            <label for="name">Your Full Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" required><br><br>
+            <label for="email">Email address:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="start">When would you like to get started?</label><br>
+            <select id="start" name="start" required>
+                <option value="this week">This week</option>
+                <option value="within two weeks">Within two weeks</option>
+                <option value="in a month">In a month</option>
+            </select><br><br>
+            <label for="budget">How much are you willing to invest in your musical self?</label><br>
+            <select id="budget" name="budget" required>
+                <option value="60 - 80 dlls/week (1 class/week) Regular">$60 - $80 per week (1 class/week) Regular</option>
+                <option value="120 - 160 dlls/week (2 classes/week) Involved">$120 - $160 per week (2 classes/week) Involved</option>
+                <option value="180 - 240 dlls/week (3 classes/week) Committed">$180 - $240 per week (3 classes/week) Committed</option>
+            </select><br><br>
+            <label for="additional">What do you want to learn besides singing?</label><br>
+            <div class="checkbox-container">
+                <label for="songwriting">Songwriting</label>
+                <input type="checkbox" id="songwriting" name="additional" value="Songwriting">
+                <label for="piano">Piano</label>
+                <input type="checkbox" id="piano" name="additional" value="Piano">
+                <label for="guitar">Guitar</label>
+                <input type="checkbox" id="guitar" name="additional" value="Guitar">
+                <label for="music_production">Music Production</label>
+                <input type="checkbox" id="music_production" name="additional" value="Music Production">
+                <label for="stage_presence">Stage Presence</label>
+                <input type="checkbox" id="stage_presence" name="additional" value="Stage Presence">
+                <label for="only_singing">I only care about singing</label>
+                <input type="checkbox" id="only_singing" name="additional" value="I only care about singing">
+            </div><br>
+            <input type="hidden" id="formSource" name="formSource" value="SingingSisterhood">
             <input type="submit" value="Submit">
         </form>
     </div>
@@ -135,16 +281,15 @@
                 headers: {
                     'Accept': 'application/json'
                 }
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = 'https://sites.google.com/view/singing-sisterhood/thank-you';
-                } else {
-                    alert('There was an error submitting the form. Please try again.');
-                }
-            }).catch(error => {
+            }).then(response => response.json())
+              .then(data => {
+                console.log('Success:', data);
+                alert('Form submitted successfully!');
+              })
+              .catch(error => {
                 console.error('Error:', error);
                 alert('There was an error submitting the form. Please try again.');
-            });
+              });
         }
     </script>
 </body>
