@@ -58,7 +58,7 @@
     <div class="container">
         <h1>You're almost there, sister!</h1>
         <p>Schedule a complimentary 15-minute consultation with our booking manager to find the ideal female vocal coach tailored to your goals, experience, style, and location. We'll text you first to agree on a time to call you.</p>
-        <form id="signupForm" action="https://script.google.com/macros/s/AKfycbzO09o0fzGaWnzrmr9Xk-fBxG9STthZVxXfXnXQhaJH3lqvyhGho1Ja24kcBRTKaW-Z/exec" method="post" onsubmit="submitForm(event)">
+        <form id="signupForm" action="https://script.google.com/macros/s/AKfycbwRC01aJcg93Jskp1g5bOX5sZU--0aQzgs37i1BHm1Pre7SnkFwq2wg9eqRgZw3JaLs/exec" method="post" onsubmit="submitForm(event)">
             <input type="hidden" name="formSource" value="SingingSisterhood">
             <label for="goal">What is your biggest goal or dream in music?</label><br>
             <select id="goal" name="goal" required>
@@ -129,6 +129,8 @@
             for (var pair of formData.entries()) {
                 console.log(pair[0] + ': ' + pair[1]);
             }
+
+            alert("Form data: " + JSON.stringify(Object.fromEntries(formData.entries())));
 
             fetch(form.action, {
                 method: 'POST',
