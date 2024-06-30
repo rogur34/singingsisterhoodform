@@ -6,8 +6,8 @@
     <title>Elite Singing Sisterhood Signup Form</title>
     <style>
         body {
-            background-color: #0000FF; /* Blue background */
-            color: #FFFFFF;
+            background-color: #FFFF00; /* Yellow background */
+            color: #000000; /* Black text */
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -19,24 +19,24 @@
         .container {
             max-width: 600px;
             padding: 20px;
-            background: #1E90FF; /* Darker blue form background */
+            background: #FFD700; /* Gold form background */
             border-radius: 8px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             text-align: center;
-            color: #FFFFFF;
+            color: #000000;
         }
         input, select, textarea {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border-radius: 4px;
-            border: 1px solid #ADD8E6; /* Light blue border */
-            background: #F0F8FF; /* Light blue input background */
+            border: 1px solid #CCCCCC;
+            background: #FFFFFF;
             color: #000000;
             box-sizing: border-box;
         }
         input[type="submit"] {
-            background-color: #ADD8E6; /* Light blue button */
+            background-color: #FFA500;
             color: #000000;
             border: none;
             cursor: pointer;
@@ -47,7 +47,7 @@
             margin-top: 20px;
         }
         input[type="submit"]:hover {
-            background-color: #87CEEB; /* Darker hover button */
+            background-color: #FF8C00;
         }
         .hidden {
             display: none;
@@ -59,7 +59,6 @@
         <h1>You're almost there, sister!</h1>
         <p>Schedule a complimentary 15-minute consultation with our booking manager to find the ideal female vocal coach tailored to your goals, experience, style, and location. We'll text you first to agree on a time to call you.</p>
         <form id="signupForm" action="https://script.google.com/macros/s/AKfycbzCV-KwABbV_mC1-w8ru22slQRSvZDaHR34LByWz3Odwz6L9JNjT5lVPNouvrJwbscn/exec" method="post" onsubmit="submitForm(event)">
-            <input type="hidden" name="formSource" value="SingingSisterhood">
             <label for="goal">What is your biggest goal or dream in music?</label><br>
             <select id="goal" name="goal" required>
                 <option value="I want to become a renowned singer/musician">I want to become a renowned singer/musician</option>
